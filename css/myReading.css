@@ -4,3 +4,7 @@ li {
   border-bottom: 1px solid grey;
   font-size: 1.5em;
 }
+li img {
+  width: 32px;
+  height: 32px;
+}
