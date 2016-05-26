@@ -29,9 +29,12 @@ $(function(){
       console.log(e);
 	}
     savedPos = $(document).scrollTop();
+	var iconUrl = $('link[rel="icon"]:first').attr('href');
+	iconUrl = (iconUrl.indexOf('/') === -1 ? location.host : '') + iconUrl;
 	links[location.href] = {
 	  title: document.title,
-	  scroll: savedPos
+	  scroll: savedPos,
+	  icon: iconUrl
 	};
     localStorage.setItem('myLinks', JSON.stringify(links));
     console.log('save ' + savedPos);
