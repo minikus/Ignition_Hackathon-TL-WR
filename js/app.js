@@ -1,6 +1,6 @@
 $(function(){
-  var links = $.parseJSON(localStorage.getItem('myLinks'));
-  var savedPos = ((links || {})[location.href] || {}).scroll;
+  var links = $.parseJSON(localStorage.getItem('myLinks')) || {};
+  var savedPos = (links[location.href] || {}).scroll;
   console.log('load ' + savedPos);
   
   $('#saveForLater').click(function(){
