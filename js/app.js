@@ -1,6 +1,6 @@
 $(function(){
-  var today = $( "#alarm" ).timeDropper();
-  var saturday = $( "#alarm2" ).timeDropper();
+  $( "#alarm" ).timeDropper();
+  $( "#alarm2" ).timeDropper();
 
 
   var links = $.parseJSON(localStorage.getItem('myLinks'));
