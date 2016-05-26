@@ -1,6 +1,6 @@
 $(function(){
   var links = $.parseJSON(localStorage.getItem('myLinks'));
-  var savedPos = ((links || {})[document.title] || {}).scroll;
+  var savedPos = ((links || {})[location.href] || {}).scroll;
   console.log('load ' + savedPos);
   
   $('#saveForLater').click(function(){
@@ -28,8 +28,8 @@ $(function(){
       console.log(e);
 	}
     savedPos = $(document).scrollTop();
-	links[document.title] = {
-	  link: location.href,
+	links[location.href] = {
+	  title: document.title,
 	  scroll: savedPos
 	};
     localStorage.setItem('myLinks', JSON.stringify(links));
