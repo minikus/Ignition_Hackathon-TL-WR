@@ -2,24 +2,33 @@
   font-family: sans-serif;
 }
 
+p{
+  font-size: 1em;
+  padding: 10px;
+}
+
 #saveForLater{
   position: fixed;
   padding: 10px;
-  font-size: 1.2em;
+  font-size: 11px;
   background-color: red;
-  bottom: 50px;
-  right: 50px;
+  bottom: 20px;
+  right: 20px;
   border-radius: 10px;
-
+  width: 80px;
+  height: 80px;
+  box-shadow: none;
+  border-radius: 50%;
+  border-style: none;
 }
 
 #goToSaved{
   position: fixed;
   padding: 10px;
-  font-size: 1.2em;
+  font-size: 11px;
   background-color: green;
-  bottom: 200px;
-  right: 50px;
+  top: 100px;
+  right: 20px;
   display: none;
   border-radius: 10px;
 }
