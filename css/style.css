@@ -32,3 +32,7 @@ p{
   display: none;
   border-radius: 10px;
 }
+
+#saveForLater.scrolling {
+  background-color: lime;
+}
