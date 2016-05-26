@@ -11,6 +11,10 @@ $(function(){
 	addToCalendar();
     $('#overlay,#tlwr').hide();
   });
+  
+  $('#close').click(function() {
+    $('#overlay,#tlwr').hide();
+  });
 
   setTimeout(function() {
 	$('#saveForLater').addClass('scrolling');
