@@ -1,23 +1,38 @@
 $(function(){
-  var savedLocation = localStorage.getItem('scrollTop');
-  console.log('load ' + savedLocation);
+  var links = $.parseJSON(localStorage.getItem('myLinks'));
+  var savedPos = ((links || {})[document.title] || {}).scroll;
+  console.log('load ' + savedPos);
   
   $('#saveForLater').click(function(){
     $('#overlay,#tlwr').show();
   });
   $('#today,#weekend').click(function() {
-    savedLocation = $(document).scrollTop();
-    localStorage.setItem('scrollTop', savedLocation);
-    console.log('save ' + savedLocation);
+    addScrollPos();
     $('#overlay,#tlwr').hide();
   });
 
   setTimeout(function() {
 	$('#saveForLater').addClass('scrolling');
     $('html, body').animate({
-      scrollTop: savedLocation
+      scrollTop: savedPos
     }, 500, function() {
 	  $('#saveForLater').removeClass('scrolling');
 	});
   }, 100);
+  
+  function addScrollPos() {
+	var links = {};
+	try {
+      links = $.parseJSON(localStorage.getItem('myLinks')) || {};
+	} catch (e) {
+      console.log(e);
+	}
+    savedPos = $(document).scrollTop();
+	links[document.title] = {
+	  link: location.href,
+	  scroll: savedPos
+	};
+    localStorage.setItem('myLinks', JSON.stringify(links));
+    console.log('save ' + savedPos);
+  }
 });
