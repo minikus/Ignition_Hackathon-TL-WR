@@ -1,18 +1,25 @@
+*{
+  font-family: sans-serif;
+}
+
 #saveForLater{
   position: fixed;
   padding: 10px;
-  font-size: 1.5em;
+  font-size: 1.2em;
   background-color: red;
   bottom: 50px;
   right: 50px;
+  border-radius: 10px;
+
 }
 
 #goToSaved{
   position: fixed;
   padding: 10px;
-  font-size: 1.5em;
-  background-color: red;
+  font-size: 1.2em;
+  background-color: green;
   bottom: 200px;
   right: 50px;
   display: none;
+  border-radius: 10px;
 }
