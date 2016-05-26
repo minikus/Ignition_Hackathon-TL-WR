@@ -1,10 +1,4 @@
 $(function(){
-  var today = $( "#alarm" ).timeDropper();
-  var saturday = $( "#alarm2" ).timeDropper();
-
-
-  var links = $.parseJSON(localStorage.getItem('myLinks'));
-  var savedPos = ((links || {})[location.href] || {}).scroll;
   var links = $.parseJSON(localStorage.getItem('myLinks')) || {};
   var savedPos = (links[location.href] || {}).scroll;
   console.log('load ' + savedPos);
@@ -12,12 +6,12 @@ $(function(){
   $('#saveForLater').click(function(){
     $('#overlay,#tlwr').show();
   });
+  $('#todayAlarm,#weekendAlarm').timeDropper();
   $('#today,#weekend').click(function() {
     addScrollPos();
-	addToCalendar();
+	addToCalendar(this.id === 'weekend', $('#' + this.id + 'Alarm').val());
     $('#overlay,#tlwr').hide();
   });
-
   $('#close').click(function() {
     $('#overlay,#tlwr').hide();
   });
@@ -49,25 +43,45 @@ $(function(){
     localStorage.setItem('myLinks', JSON.stringify(links));
     console.log('save ' + savedPos);
   }
-  $('.timepicker').wickedpicker({twentyFour: true});
-  var twelveHour = $('.timepicker-12-hr').wickedpicker();
-  $('.time').text('//JS Console: ' + twelveHour.wickedpicker('time'));
-  $('.timepicker-24-hr').wickedpicker({twentyFour: true});
-
-
-
-  function addToCalendar() {
+ 
+  function addToCalendar(weekend, time) {
     var lastCal = $.parseJSON(localStorage.getItem('lastCal'));
 	if (lastCal && new Date(lastCal.date) > new Date()) {
       return;
     }
-	var tomorrow = new Date();
-	tomorrow.setDate(tomorrow.getDate() + 1);
-	tomorrow.setHours(0, 0, 0, 0);
-    localStorage.setItem('lastCal', JSON.stringify({date: tomorrow}));
-    var gcal = 'https://calendar.google.com/calendar/render?action=TEMPLATE&dates=20160527T110000Z/20160527T170000Z&location=Anywhere&text=My+Reading&details=Read+these+articles+later.%0A%0A--%0Ahttp://www.thevocal.com.au/MyReading.html';
-	var ical = 'http://addtocalendar.com/atc/ical?utz=600&uln=en-US&vjs=1.5&e%5B0%5D%5Bdate_start%5D=2016-05-27%2012%3A00%3A00&e%5B0%5D%5Bdate_end%5D=2016-05-27%2018%3A00%3A00&e%5B0%5D%5Btimezone%5D=Australia%2FSydney&e%5B0%5D%5Btitle%5D=My+Reading&e%5B0%5D%5Bdescription%5D=Read+these+articles+later.%0A%0A--%0Ahttp://www.thevocal.com.au/MyReading.html&e%5B0%5D%5Blocation%5D=Anywhere';
+	var setFor = new Date();
+	setFor.setDate(setFor.getDate() + (weekend ? 7 - setFor.getDay(): 1));
+	setFor.setHours(0, 0, 0, 0);
+    localStorage.setItem('lastCal', JSON.stringify({date: setFor}));
+	var parts = /^(\d+):(\d+)\s(am|pm)$/.exec(time);
+	var startTime = new Date(setFor.getTime());
+	startTime.setDate(startTime.getDate() - 1);
+	startTime.setHours(parseInt(parts[1]) + (parts[3] === 'am' ? 0 : 12), parseInt(parts[2]), 0);
+	var endTime = new Date(startTime.getTime());
+	endTime.setMinutes(endTime.getMinutes() + 15);
+	console.log(startTime + '  ' + endTime);
+    var gcal = 'https://calendar.google.com/calendar/render?action=TEMPLATE&dates=' +
+	  formatGDatetime(startTime) + '/' + formatGDatetime(endTime) + '&location=Anywhere' +
+	  '&text=My+Reading&details=Read+these+articles+later.%0A%0A--%0Ahttp://www.thevocal.com.au/MyReading.html';
+	var ical = 'http://addtocalendar.com/atc/ical?utz=600&uln=en-US&vjs=1.5&e%5B0%5D%5Bdate_start%5D=' +
+	  formatIDatetime(startTime) + '&e%5B0%5D%5Bdate_end%5D=' + formatIDatetime(endTime) +
+	  '&e%5B0%5D%5Btimezone%5D=Australia%2FSydney&e%5B0%5D%5Btitle%5D=My+Reading' +
+	  '&e%5B0%5D%5Bdescription%5D=Read+these+articles+later.%0A%0A--%0Ahttp://www.thevocal.com.au/MyReading.html&e%5B0%5D%5Blocation%5D=Anywhere';
 	window.open(getMobileOperatingSystem() === 'iOS' ? ical : gcal);
+  }
+  
+  function formatGDatetime(time) {
+    return time.getUTCFullYear() + pad(time.getUTCMonth() + 1) + pad(time.getUTCDate()) +
+	  'T' + pad(time.getUTCHours()) + pad(time.getUTCMinutes()) + pad(time.getUTCSeconds()) + 'Z';
+  }
+  
+  function formatIDatetime(time) {
+    return time.getFullYear() + '-' + pad(time.getMonth() + 1) + '-' + pad(time.getDate()) +
+	  ' ' + pad(time.getHours()) + ':' + pad(time.getMinutes()) + ':' + pad(time.getSeconds());
+  }
+  
+  function pad(value) {
+    return (value < 10 ? '0' : '') + value;
   }
 
   function getMobileOperatingSystem() {

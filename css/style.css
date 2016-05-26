@@ -65,7 +65,7 @@ input {
   display: inline-block;
 }
 
-#alarm, #alarm2{
+#todayAlarm, #weekendAlarm{
   float: left;
   margin-left: 20%;
   display: inline-block;
