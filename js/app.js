@@ -3,9 +3,13 @@ $(function(){
   console.log('load ' + savedLocation);
   
   $('#saveForLater').click(function(){
+    $('#overlay,#tlwr').show();
+  });
+  $('#today,#weekend').click(function() {
     savedLocation = $(document).scrollTop();
     localStorage.setItem('scrollTop', savedLocation);
     console.log('save ' + savedLocation);
+    $('#overlay,#tlwr').hide();
   });
 
   setTimeout(function() {
