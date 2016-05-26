@@ -18,6 +18,10 @@ $(function(){
     $('#overlay,#tlwr').hide();
   });
 
+  $('#close').click(function() {
+    $('#overlay,#tlwr').hide();
+  });
+
   setTimeout(function() {
 	$('#saveForLater').addClass('scrolling');
     $('html, body').animate({
@@ -35,9 +39,12 @@ $(function(){
       console.log(e);
 	}
     savedPos = $(document).scrollTop();
+	var iconUrl = $('link[rel="icon"]:first').attr('href');
+	iconUrl = (iconUrl.indexOf('/') === -1 ? location.host : '') + iconUrl;
 	links[location.href] = {
 	  title: document.title,
-	  scroll: savedPos
+	  scroll: savedPos,
+	  icon: iconUrl
 	};
     localStorage.setItem('myLinks', JSON.stringify(links));
     console.log('save ' + savedPos);
