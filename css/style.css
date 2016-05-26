@@ -3,7 +3,7 @@
 }
 
 p{
-  font-size: 1em;
+  font-size: 1.2em;
   padding: 10px;
 }
 
@@ -42,8 +42,8 @@ button img{
 #tlwr {
   display: none;
   position: fixed;
-  width: 90%;
-  height: 90%;
+  width: 80%;
+  height: 80%;
   top: 5%;
   left: 5%;
   padding: 1em;
@@ -52,4 +52,15 @@ button img{
 }
 #tlwr button {
   width: 90%;
+}
+
+.wickedpicker{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#today{
+  width: 30%;
+  float: right;
 }

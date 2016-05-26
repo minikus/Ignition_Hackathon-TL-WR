@@ -1,8 +1,12 @@
 $(function(){
+
+
+
+
   var links = $.parseJSON(localStorage.getItem('myLinks'));
   var savedPos = ((links || {})[location.href] || {}).scroll;
   console.log('load ' + savedPos);
-  
+
   $('#saveForLater').click(function(){
     $('#overlay,#tlwr').show();
   });
@@ -19,7 +23,7 @@ $(function(){
 	  $('#saveForLater').removeClass('scrolling');
 	});
   }, 100);
-  
+
   function addScrollPos() {
 	var links = {};
 	try {
@@ -35,4 +39,10 @@ $(function(){
     localStorage.setItem('myLinks', JSON.stringify(links));
     console.log('save ' + savedPos);
   }
+  $('.timepicker').wickedpicker({twentyFour: true});
+  var twelveHour = $('.timepicker-12-hr').wickedpicker();
+  $('.time').text('//JS Console: ' + twelveHour.wickedpicker('time'));
+  $('.timepicker-24-hr').wickedpicker({twentyFour: true});
+
+
 });

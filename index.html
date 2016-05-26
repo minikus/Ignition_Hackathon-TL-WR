@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <script src="js/jquery.js" charset="utf-8"></script>
+    <script src="js/wickedpicker.js" type="text/javascript" src="wickedpicker.js"></script>
     <script src="js/app.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="css/wickedpicker.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="css/style.css" media="screen" title="no title" charset="utf-8">
     <title>TL:WR</title>
   </head>
@@ -13,14 +15,6 @@
     <button id="saveForLater" type="button" name="button">
       <img src="assets/save2.png" alt=""/>
     </button>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </p>
-
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </p>
-
     <p>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </p>
@@ -86,10 +80,17 @@
     </p>
 	<div id="overlay"></div>
 	<div id="tlwr">
-		<h1>Save my Spot</h1>
-		<button id="today">Going home</button>
-		<button id="weekend">On the weekend</button>
-		<a href="/myReading.html">All my saves</a>
+    <div class="content__subsection" id="demo">
+
+  		<h1>Save My Spot</h1>
+      <div class="content__subsection picker-container">
+        <input type="text" id="timepicker-12-hr" name="timepicker-12-hr" class="timepicker-12-hr">
+      </div>
+      <button id="today">Save</button>
+
+  		<button id="weekend">On the weekend</button>
+  		<a href="/myReading.html">All my saves</a>
+    </div>
 	</div>
   </body>
 </html>
