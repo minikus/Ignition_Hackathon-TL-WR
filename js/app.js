@@ -1,8 +1,5 @@
 $(function(){
   var MY_LINKS = 'myLinks';
-  var links = $.parseJSON(localStorage.getItem(MY_LINKS)) || {};
-  var savedPos = (links[location.href] || {}).scroll;
-  console.log('load ' + savedPos);
 
   $('#saveForLater').click(function(){
     $('#overlay,#tlwr').show();
@@ -16,13 +13,12 @@ $(function(){
   $('#close').click(function() {
     $('#overlay,#tlwr').hide();
   });
-  $(window).scroll(function() {
-    if ($(document).height() - $(document).scrollTop() - $(window).height() < 100) {
-      var links = $.parseJSON(localStorage.getItem(MY_LINKS)) || {};
-	  delete links[location.href];
-      localStorage.setItem(MY_LINKS, JSON.stringify(links));
-    }	
-  });
+
+  var links = $.parseJSON(localStorage.getItem(MY_LINKS)) || {};
+  var savedPos = (links[location.href] || {}).scroll || 0;
+  console.log('load ' + savedPos);
+  delete links[location.href];
+  localStorage.setItem(MY_LINKS, JSON.stringify(links));
 
   setTimeout(function() {
 	$('#saveForLater').addClass('scrolling');
