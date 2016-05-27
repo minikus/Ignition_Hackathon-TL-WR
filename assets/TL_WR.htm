@@ -1,22 +1,22 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
+<!-- saved from url=(0061)file:///Users/carmenminikus/projects/ignition_tlwr/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
     <meta name="viewport" content="width=device-width,initial-scale=1">
-	<link rel="icon" type="image/png"  href="http://www.thevocal.com.au/wp-content/themes/the-vocal/img/favicon-32x32.png?v=xQQbdrzRbA" sizes="32x32">
-    <script src="js/jquery.js" charset="utf-8"></script>
-    <script src="js/timedropper.js"></script>
-    <script src="js/app.js" charset="utf-8"></script>
-    <link rel="stylesheet" type="text/css" href="css/timedropper.css">
-    <link rel="stylesheet" href="css/clearfix.css" media="screen" title="no title" charset="utf-8">
-    <link rel="stylesheet" href="css/style.css" media="screen" title="no title" charset="utf-8">
-    <link href='https://fonts.googleapis.com/css?family=Bree+Serif' rel='stylesheet' type='text/css'>
+	<link rel="icon" type="image/png" href="http://www.thevocal.com.au/wp-content/themes/the-vocal/img/favicon-32x32.png?v=xQQbdrzRbA" sizes="32x32">
+    <script src="./TL_WR_files/jquery.js" charset="utf-8"></script>
+    <script src="./TL_WR_files/timedropper.js"></script>
+    <script src="./TL_WR_files/app.js" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="./TL_WR_files/timedropper.css">
+    <link rel="stylesheet" href="./TL_WR_files/clearfix.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="./TL_WR_files/style.css" media="screen" title="no title" charset="utf-8">
+    <link href="./TL_WR_files/css" rel="stylesheet" type="text/css">
     <title>TL:WR</title>
-  </head>
+  <style>#td-clock-0 .td-clock {color:#555;background: #FFF; box-shadow: 0 0 0 1px #1977CC,0 0 0 8px rgba(0, 0, 0, 0.05); } #td-clock-0 .td-clock .td-time span.on { color:#1977CC} #td-clock-0 .td-clock:before { border-color: #1977CC} #td-clock-0 .td-select:after { box-shadow: 0 0 0 1px #1977CC } #td-clock-0 .td-clock:before,#td-clock-0 .td-select:after {background: #FFF;} #td-clock-0 .td-lancette {border: 2px solid #1977CC; opacity:0.1}#td-clock-0 .td-lancette div:after { background: #1977CC;} #td-clock-0 .td-bulletpoint div:after { background:#1977CC; opacity:0.1}</style><style>#td-clock-1 .td-clock {color:#555;background: #FFF; box-shadow: 0 0 0 1px #1977CC,0 0 0 8px rgba(0, 0, 0, 0.05); } #td-clock-1 .td-clock .td-time span.on { color:#1977CC} #td-clock-1 .td-clock:before { border-color: #1977CC} #td-clock-1 .td-select:after { box-shadow: 0 0 0 1px #1977CC } #td-clock-1 .td-clock:before,#td-clock-1 .td-select:after {background: #FFF;} #td-clock-1 .td-lancette {border: 2px solid #1977CC; opacity:0.1}#td-clock-1 .td-lancette div:after { background: #1977CC;} #td-clock-1 .td-bulletpoint div:after { background:#1977CC; opacity:0.1}</style></head>
   <body>
     <h1>TL:WR</h1>
-      <button id="saveForLater" type="button" name="button">
-      <img src="assets/save2.png" alt=""/>
+      <button id="saveForLater" type="button" name="button" class="">
+      <img src="./TL_WR_files/save2.png" alt="">
     </button>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -81,8 +81,8 @@
     <p>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </p>
-	<div id="overlay"></div>
-	<div id="tlwr">
+	<div id="overlay" style="display: block;"></div>
+	<div id="tlwr" style="display: block;">
     <button id="close">X</button>
 
   		<h1>too long : will read</h1>
@@ -94,7 +94,7 @@
       <div class="readToday cf">
         <h3>Ping me on the way home</h3>
         <div class="full cf">
-          <input type="text" id="alarm" />
+          <input type="text" id="alarm" readonly="" class="td-input">
           <button id="today"><h4>Save</h4></button>
         </div>
       </div>
@@ -102,13 +102,14 @@
       <div class="readOnWeekend cf">
         <h3>Hit me up on the weekend</h3>
         <div class="full cf">
-          <input type="text" id="alarm2" />
+          <input type="text" id="alarm2" readonly="" class="td-input">
           <button id="weekend"><h4>Save</h4></button>
         </div>
       </div>
       <div class="allReads">
-        <a href="/myReading.html"><h3 id="allReads">Take me to all my saved reads,<br> I miss them.</h3></a>
+        <a href="file:///myReading.html"><h3 id="allReads">Take me to all my saved reads,<br> I miss them.</h3></a>
       </div>
   </div>
-  </body>
-</html>
+  
+
+<div class="td-wrap td-n2" id="td-clock-0"><div class="td-overlay"></div><div class="td-clock td-init" style="top: 1872px; left: -58px;"><div class="td-deg td-n" style="transform: rotate(157deg);"><div class="td-select"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 35.4" enable-background="new 0 0 100 35.4" xml:space="preserve" style="stroke:#1977CC"><g><path fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M98.1,33C85.4,21.5,68.5,14.5,50,14.5S14.6,21.5,1.9,33"></path><line fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="1.9" y1="33" x2="1.9" y2="28.6"></line><line fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="1.9" y1="33" x2="6.3" y2="33"></line><line fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="98.1" y1="33" x2="93.7" y2="33"></line><line fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="98.1" y1="33" x2="98.1" y2="28.6"></line></g></svg></div></div><div class="td-medirian"><span class="td-icon-am td-n">AM</span><span class="td-icon-pm td-n">PM</span></div><div class="td-lancette"><div style="transform: rotate(140deg);"></div><div style="transform: rotate(300deg);"></div></div><div class="td-time"><span class="on" data-id="10">10</span>:<span data-id="23">23</span></div></div></div><div class="td-wrap td-n2" id="td-clock-1"><div class="td-overlay"></div><div class="td-clock td-init" style="top: 1872px; left: -58px;"><div class="td-deg td-n" style="transform: rotate(157deg);"><div class="td-select"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 35.4" enable-background="new 0 0 100 35.4" xml:space="preserve" style="stroke:#1977CC"><g><path fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M98.1,33C85.4,21.5,68.5,14.5,50,14.5S14.6,21.5,1.9,33"></path><line fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="1.9" y1="33" x2="1.9" y2="28.6"></line><line fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="1.9" y1="33" x2="6.3" y2="33"></line><line fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="98.1" y1="33" x2="93.7" y2="33"></line><line fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="98.1" y1="33" x2="98.1" y2="28.6"></line></g></svg></div></div><div class="td-medirian"><span class="td-icon-am td-n">AM</span><span class="td-icon-pm td-n">PM</span></div><div class="td-lancette"><div style="transform: rotate(140deg);"></div><div style="transform: rotate(300deg);"></div></div><div class="td-time"><span class="on" data-id="10">10</span>:<span data-id="23">23</span></div></div></div></body></html>

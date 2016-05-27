@@ -13,8 +13,8 @@ button img{
 
 h1{
   text-align: center;
-  padding-bottom: 2%;
-  padding-top: 2%;
+  padding-bottom: 5px;
+  padding-top: 8px;
   color: #3C3C3C;
   font-family: 'Bree Serif', serif;
 }
@@ -52,12 +52,15 @@ h1{
   display: none;
   position: fixed;
   width: 90%;
-  height: 92%;
+  height: 90%;
   top: 5%;
   left: 5%;
   background: white;
   border: 1px solid grey;
 }
+/*#tlwr button {
+  width: 20%;
+}*/
 
 input {
   border: 1px solid #3C3C3C;
@@ -122,8 +125,7 @@ input {
 
 .readOnWeekend h3, .readToday h3 {
   text-align: center;
-  margin-top: 8%;
-  font-size: 1.4em;
+  margin-top: 30px;
   color: #3C3C3C;
 }
 
@@ -137,8 +139,10 @@ h3 {
 }
 
 #tlwr p {
-  padding: 5% 10% 3% 10%;
-  font-size: 18px;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-bottom: 0;
+  font-size: 16px;
   text-align: center;
   margin-bottom: 0;
 }
@@ -146,14 +150,15 @@ h3 {
 .info {
   width: 100%;
   background-color: rgb(64, 175, 102);
-  padding-bottom: 2%;
-  margin-bottom: 1%;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
 
 }
 
 .info p{
   color: white;
   font-weight: 100;
+  padding-top: 15px;
 }
 
 .allReads {
@@ -161,81 +166,10 @@ h3 {
   background-color: rgb(64, 175, 102);
   padding: 1px 0 5px 0;
   margin-top: 40px;
-  width: 100%;
-  position: absolute;
-  bottom: 0;
 }
 
 #allReads {
-  margin: 5% 0 5% 0;
+  margin: 27px 0 21px 0;;
   font-size: 18px;
   text-align: center;
-  font-weight: 100;
-}
-
-/* ----------- iphone 5  ----------- */
-
-@media only screen
-and (min-device-width : 320px)
-and (max-device-width : 360px) {
-    h1 {
-      font-size: 1.8em;
-    }
-
-    #tlwr p {
-      font-size: 16px;
-      padding: 5% 6% 3% 6%;
-    }
-
-    #alarm, #alarm2 {
-      margin-left: 18%;
-      height: 40px;
-      font-size: 1.2em;
-    }
-
-    #tlwr button{
-      height: 45px;
-    }
-
-    #weekend h4, #today h4{
-      position: relative;
-      font-size: 16px;
-      font-weight: 600;
-      bottom: 8px;
-      left: 0px;
-    }
-    #allReads {
-      font-size: 15px;
-    }
-
-    .info {
-      margin-bottom: 2%;
-    }
-
-    .readOnWeekend h3, .readToday h3{
-      font-size: 1.2em;
-      margin-bottom: 5%;
-    }
-
-}
-
-/* ----------- iPad mini ----------- */
-
-@media only screen
-  and (min-device-width: 768px)
-  and (max-device-width: 1024px)
-  and (orientation: portrait)
-  and (-webkit-min-device-pixel-ratio: 1) {
-
-}
-
-/* ----------- iPad 1 and 2 ----------- */
-
-/* Portrait */
-@media only screen
-  and (min-device-width: 768px)
-  and (max-device-width: 1024px)
-  and (orientation: portrait)
-  and (-webkit-min-device-pixel-ratio: 1) {
-
 }
