@@ -69,12 +69,13 @@ $(function(){
 	endTime.setMinutes(endTime.getMinutes() + 15);
 	console.log(startTime + '  ' + endTime);
     var gcal = 'https://calendar.google.com/calendar/render?action=TEMPLATE&dates=' +
-	  formatGDatetime(startTime) + '/' + formatGDatetime(endTime) + '&location=Anywhere' +
+	  formatGDatetime(startTime) + '/' + formatGDatetime(endTime) + '&location=http://www.thevocal.com.au/MyReading.html' +
 	  '&text=My+Reading&details=Read+these+articles+later.%0A%0A--%0Ahttp://www.thevocal.com.au/MyReading.html';
 	var ical = 'http://addtocalendar.com/atc/ical?utz=600&uln=en-US&vjs=1.5&e%5B0%5D%5Bdate_start%5D=' +
 	  formatIDatetime(startTime) + '&e%5B0%5D%5Bdate_end%5D=' + formatIDatetime(endTime) +
 	  '&e%5B0%5D%5Btimezone%5D=Australia%2FSydney&e%5B0%5D%5Btitle%5D=My+Reading' +
-	  '&e%5B0%5D%5Bdescription%5D=Read+these+articles+later.%0A%0A--%0Ahttp://www.thevocal.com.au/MyReading.html&e%5B0%5D%5Blocation%5D=Anywhere';
+	  '&e%5B0%5D%5Bdescription%5D=Read+these+articles+later.%0A%0A--%0Ahttp://www.thevocal.com.au/MyReading.html' + 
+	  '&e%5B0%5D%5Blocation%5D=http://www.thevocal.com.au/MyReading.html';
 	window.open(getMobileOperatingSystem() === 'iOS' ? ical : gcal);
   }
   
