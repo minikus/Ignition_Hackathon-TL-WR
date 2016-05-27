@@ -1,5 +1,6 @@
 $(function(){
-  var links = $.parseJSON(localStorage.getItem('myLinks')) || {};
+  var MY_LINKS = 'myLinks';
+  var links = $.parseJSON(localStorage.getItem(MY_LINKS)) || {};
   var savedPos = (links[location.href] || {}).scroll;
   console.log('load ' + savedPos);
 
@@ -15,6 +16,13 @@ $(function(){
   $('#close').click(function() {
     $('#overlay,#tlwr').hide();
   });
+  $(window).scroll(function() {
+    if ($(document).height() - $(document).scrollTop() - $(window).height() < 100) {
+      var links = $.parseJSON(localStorage.getItem(MY_LINKS)) || {};
+	  delete links[location.href];
+      localStorage.setItem(MY_LINKS, JSON.stringify(links));
+    }	
+  });
 
   setTimeout(function() {
 	$('#saveForLater').addClass('scrolling');
@@ -28,7 +36,7 @@ $(function(){
   function addScrollPos() {
 	var links = {};
 	try {
-      links = $.parseJSON(localStorage.getItem('myLinks')) || {};
+      links = $.parseJSON(localStorage.getItem(MY_LINKS)) || {};
 	} catch (e) {
       console.log(e);
 	}
@@ -40,7 +48,7 @@ $(function(){
 	  scroll: savedPos,
 	  icon: iconUrl
 	};
-    localStorage.setItem('myLinks', JSON.stringify(links));
+    localStorage.setItem(MY_LINKS, JSON.stringify(links));
     console.log('save ' + savedPos);
   }
  
